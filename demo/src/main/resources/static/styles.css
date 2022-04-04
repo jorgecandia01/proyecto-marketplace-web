@@ -2,7 +2,7 @@
 /*!
 * Start Bootstrap - Grayscale v7.0.5 (https://startbootstrap.com/theme/grayscale)
 * Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob//LICENSE)
 */
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -7551,6 +7551,7 @@ textarea.form-control-lg {
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+  height: 70vh;
 }
 
 .mb-5 {
@@ -8014,8 +8015,8 @@ textarea.form-control-lg {
 }
 
 .bg-light {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 2;
+  background-color: #808080 !important;
 }
 
 .bg-dark {
@@ -11562,7 +11563,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("assets/img/blackberry_multiplemovil.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11606,7 +11607,8 @@ body {
 
 .about-section {
   padding-top: 10rem;
-  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+  height: 70vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("assets/img/blackberry_tactil.jpg");
 }
 .about-section p {
   margin-bottom: 5rem;
@@ -11646,6 +11648,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  height: 85vh;
 }
 .signup-section .form-signup input {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
