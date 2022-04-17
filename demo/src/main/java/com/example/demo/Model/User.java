@@ -16,6 +16,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table("TABLE_USER")
 public class User {
-    private @Column("ID") @Id Long id;
+    private @Column("ID") @Id int id;
     private @Column("CARRITO") String carrito;
+
+
 }
