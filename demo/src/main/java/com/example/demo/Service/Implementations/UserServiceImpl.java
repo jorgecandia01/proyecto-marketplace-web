@@ -13,10 +13,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.Service.UserService;
+import com.example.demo.Repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-    public User getUser(String id){return new User(1,"hola:1");};
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public User getUser(String id){
+        User response = null;
+        if(userRepository.existsById(id)){ //igual sin el parseint?? como string
+            Iterable<User> users = userRepository.getUser(id);
+            for(User user : users){
+                response = user;
+            }
+            return response;
+        }
+        return response;
+    }
+
+
+
     public User addUser(User usuario){return new User();};
     public User updateUser(User usuario){return new User();};
 
