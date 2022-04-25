@@ -16,8 +16,22 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table("TABLE_USER")
 public class User {
-    private @Column("ID") @Id int id;
+    private @Column("ID") @Id Long id;
     private @Column("CARRITO") String carrito;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public void setCarrito(String carrito) {
+        this.carrito = carrito;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCarrito() {
+        return carrito;
+    }
 }

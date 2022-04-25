@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,13 +33,23 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<User> addUser(@RequestBody User usuario){
-        User usuario2 = userService.addUser(usuario);
-        return ResponseEntity.ok().body(usuario2);
+        usuario.setId(null); //Lo hace lombok?
+        User newUsuario = userService.addUser(usuario);
+        return ResponseEntity.ok().body(newUsuario);
     }
 
     @PutMapping("/user")
     public ResponseEntity<User> updateUser(@RequestBody User usuario){
-        User usuario2 = userService.addUser(usuario);
-        return ResponseEntity.ok().body(usuario2);
+        User newUser = userService.updateUser(usuario);
+        if(newUser == null){
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.ok().body(newUser);
+    }
+
+    @DeleteMapping("/user/{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable String id){
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 }
