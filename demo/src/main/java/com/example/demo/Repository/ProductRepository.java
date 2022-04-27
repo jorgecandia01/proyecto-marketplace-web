@@ -10,12 +10,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.Model.Contact;
+import com.example.demo.Model.Product;
 
 import java.lang.Iterable;
 
 @Service
-public interface ContactRepository extends CrudRepository<Contact, String>{
-    @Query("SELECT * FROM TABLE_CONTACT WHERE ID= :id")
-    public Iterable<Contact> getMessage(String id);
+public interface ProductRepository extends CrudRepository<Product, String>{
+    @Query("SELECT * FROM TABLE_PRODUCT WHERE ID= :id")
+    public Iterable<Product> getProduct(String id);
 }

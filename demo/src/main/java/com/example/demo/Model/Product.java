@@ -14,33 +14,33 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table("TABLE_USER")
-public class User {
+@Table("TABLE_PRODUCT")
+public class Product {
     private @Column("ID") @Id Long id;
-    private @Column("EMAIL") String email;
-    private @Column("PASSWORD") String password;
+    private @Column("NAME") String name;
+    private @Column("PRICE") BigDecimal price;
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getName() {
+        return name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword() {
-        return this.password;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

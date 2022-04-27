@@ -20,4 +20,36 @@ public class Contact {
     private @Column("FECHA") LocalDate fecha;
     private @Column("BODY") String body;
     private @Column("IDUSER") String idUser; //COMO LO HAGO FOREIGN KEY??
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
 }
