@@ -1,33 +1,48 @@
 package com.example.demo.Controller;
 
-import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
-@Controller
+import com.example.demo.Service.ContactService;
+import com.example.demo.Model.Contact;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import java.lang.Iterable;
+
+@RestController
 public class ContactController {
+    @Autowired
+    private ContactService contactService;
 
-    @PostMapping("save-email")
-    @ResponseBody
-    public String sendEmail(@RequestParam (name="name") String name, 
-                            @RequestParam (name="email") String email, 
-                            @RequestParam (name="phone") String phone,
-                            @RequestParam (name="message") String message){
-
-        return "<html>"+
-                    "<head> <title= 'Acciona - Respuesta contacto'><head>"+
-                    "<body align='center' style='background-color:grey'>"+
-                        "<h3> MENSAJE ENVIADO </h3>"+
-                        "<p> Muchas gracias por el mensaje, te contestamos dentro de una semana</p>"+
-                        "<p> Aqui un recapitulo</p>"+
-                        "<p> Name : "+ name+"</p>"+
-                        "<p> Email : "+ email+"</p>"+
-                        "<p> Telefono : "+ phone+"</p>"+
-                        "<p> Mensaje : "+ message+"</p>"+
-                        "<button> <a href='index.html'>Volver al inicio </a></button>"+
-                    "</body>"+
-                "</html>";
+    @GetMapping("/contact/{id}") //HACER UNO DE BY USER
+    public ResponseEntity<Contact> getContact(@PathVariable String id){
+        Contact contact = contactService.getContact(id);
+        return ResponseEntity.ok().body(contact);
     }
-    
+
+    @PostMapping("/contact")
+    public ResponseEntity<Contact> addContact(@RequestBody Contact contact){
+        contact.setId(null); //Lo hace lombok?
+        Contact newContact = contactService.addContact(contact);
+        return ResponseEntity.ok().body(newContact);
+    }
+
+    //NO HAY PUT, NO PUEDES EDITAR UNA SUGERENCIA YA ENVIADA
+
+    @DeleteMapping("/contact/{id}")//HACER UNO DE BY USER
+    public ResponseEntity<Contact> deleteContact(@PathVariable String id){
+        contactService.deleteContact(id);
+        return ResponseEntity.noContent().build();
+    }
 }

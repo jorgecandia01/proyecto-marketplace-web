@@ -17,5 +17,5 @@ import java.lang.Iterable;
 @Service
 public interface ContactRepository extends CrudRepository<Contact, String>{
     @Query("SELECT * FROM TABLE_CONTACT WHERE ID= :id")
-    public Iterable<Contact> getMessage(String id);
+    public Iterable<Contact> getContact(String id);
 }

@@ -19,7 +19,7 @@ public class Contact {
     private @Column("ID") @Id Long id;
     private @Column("FECHA") LocalDate fecha;
     private @Column("BODY") String body;
-    private @Column("IDUSER") String idUser; //COMO LO HAGO FOREIGN KEY??
+    private @Column("IDUSER") Long idUser; //COMO LO HAGO FOREIGN KEY??
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Contact {
         this.body = body;
     }
 
-    public String getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 }
