@@ -18,7 +18,5 @@ import java.lang.Iterable;
 public interface UserRepository extends CrudRepository<User, String>{
     @Query("SELECT * FROM TABLE_USER WHERE ID= :id")
     public Iterable<User> getUser(String id);
-
-
-
 }
+

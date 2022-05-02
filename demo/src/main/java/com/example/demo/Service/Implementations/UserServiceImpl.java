@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(String id){
         User response = null;
-        if(userRepository.existsById(id)){ //igual sin el parseint?? como string
+        if(userRepository.existsById(id)){
             Iterable<User> users = userRepository.getUser(id);
             for(User user : users){
                 response = user;
@@ -52,5 +52,4 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String id){
         userRepository.deleteById(id);
     }
-
 }

@@ -33,7 +33,7 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<User> addUser(@RequestBody User usuario){
-        usuario.setId(null); //Lo hace lombok?
+        usuario.setId(null); //Lo hace lombok
         User newUsuario = userService.addUser(usuario);
         return ResponseEntity.ok().body(newUsuario);
     }
