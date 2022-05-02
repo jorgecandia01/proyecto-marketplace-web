@@ -48,13 +48,13 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">SIGN UP !</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Create an account and start ordering</h2>
-                        <label class="sup" for="id">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspId : </label>
-                        <input type="id">
+                        <label class="sup">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail : </label>
+                        <input id="txtEmail" type="text">
                         <br>
-                        <label class="sup" for="password">Password : </label>
-                        <input type="password">
+                        <label class="sup">Password : </label>
+                        <input id="txtPassword" type="text">
                         <br>
-                        <a class="btn btn-primary" href="portfolio.html">SIGN UP</a>
+                        <a class="btn btn-primary" type="submit" id="btnSignup">SIGN UP</a>
                         <p class="sup">You already have an account ?</p>
                         <a class="btn btn-primary" href="login.html">LOG IN</a>
                     </div>
@@ -73,4 +73,15 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+
+
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script src="./registration.js"></script>
+
+    <script>
+        initListeners();
+    </script>
+
+
+
 </html>
