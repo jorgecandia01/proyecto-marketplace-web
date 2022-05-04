@@ -1,13 +1,16 @@
 //Añado un listener con jquery sobre el botón para obtener
 //la sugerencia del campo de input
+var id =2;
 const initListeners = () =>{
-    $("#btnSignup").on("click", () =>{
+    $("#btnLogin").on("click", () =>{
         let email = $("#txtEmail").val();
         let password = $("#txtPassword").val();
         console.log("Botón pulsado /// "+email+password)
 
         if((email.trim() !== "") && (password.trim() !== "")){
-            addUser(email,password);
+            id++;
+            getUser(id);
+            loginUpdate(id);
         }
     });
 }
@@ -32,4 +35,14 @@ const getUser = async (id) =>{
     } else {
         console.log("Error al obtener el usuario");
     }
+}
+
+function loginUpdate(id){
+    window.open("http://localhost:8080/user/"+id,"_self");
+    // var btnL = document.getElementById(btnlogin);
+    // btnL.textContent = email;
+    // btnS.setAttribute('href','javascript:;');
+    // var btnS = document.getElementById(btnsignup);
+    // btnS.textContent = "LOG OUT";
+    // btnS.setAttribute('href','index.html');
 }

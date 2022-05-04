@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Proyecto Final de PAT : Desarollo de un app web con SpringBoot y Base de dato" />
         <meta name="author" content="Jorge Candia & Paul Jouslin de Noray" />
-        <title>Blackberry - HOME</title>
+        <title>Blackberry - Log In</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -34,8 +34,8 @@
                         <li class="nav-item"><a class="nav-link" href="contacto.html">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="login.html" style="width: 100px; padding: 10px; margin-top: 25px;">LOG IN</a>
-                            <a class="btn btn-primary" href="signup.html" style="width: 100px; padding: 10px; margin-top: 25px;">SIGN UP</a>
+                            <a class="btn btn-primary" href="login.html" style="width: 100px; padding: 10px; margin-top: 25px;" id="btnlogin">LOG IN</a>
+                            <a class="btn btn-primary" href="signup.html" style="width: 100px; padding: 10px; margin-top: 25px;" id="btnsignup">SIGN UP</a>
                         </li>
                     </ul>
                 </div>
@@ -47,14 +47,14 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">LOG IN</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Log in to start adding to your basket !</h2>
-                        <label class="sup" for="email">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail : </label>
-                        <input type="email">
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Log in your account to start shopping</h2>
+                        <label class="sup">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail : </label>
+                        <input id="txtEmail" type="text">
                         <br>
-                        <label class="sup" for="password">Password : </label>
-                        <input type="password">
+                        <label class="sup">Password : </label>
+                        <input id="txtPassword" type="text">
                         <br>
-                        <a class="btn btn-primary" href="portfolio.html">LOG IN</a>
+                        <a class="btn btn-primary" type="submit" id="btnLogin">LOG IN</a>
                         <p class="sup">Don't have an account yet ?</p>
                         <a class="btn btn-primary" href="signup.html">SIGN UP</a>
                     </div>
@@ -73,4 +73,15 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+
+
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script src="./login.js"></script>
+
+    <script>
+        initListeners();
+    </script>
+
+
+
 </html>
