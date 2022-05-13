@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.Service.UserService;
-import com.example.demo.Model.User;
+import com.example.demo.Service.CarritoService;
+import com.example.demo.Model.Carrito;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,39 +21,35 @@ import java.util.stream.StreamSupport;
 import java.lang.Iterable;
 
 @RestController
-public class UserController {
+public class CarritoController {
     @Autowired
-    private UserService userService;
+    private CarritoService carritoService;
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUser(@PathVariable String id){
-        User user = userService.getUser(id);
-        if(user != null){
-            return ResponseEntity.ok().body(user);
-        } else {
-            return ResponseEntity.badRequest().body(user);
-        }
+    @GetMapping("/carrito/{id}")
+    public ResponseEntity<Carrito> getCarrito(@PathVariable String id){
+        Carrito carrito = carritoService.getCarrito(id);
+        return ResponseEntity.ok().body(carrito);
     }
 
-    @PostMapping("/user")
-    public ResponseEntity<User> addUser(@RequestBody User user){
-        user.setId(null); //Lo hace lombok
-        User newUsuario = userService.addUser(user);
+    @PostMapping("/carrito")
+    public ResponseEntity<Carrito> addCarrito(@RequestBody Carrito carrito){
+        carrito.setId(null); //Lo hace lombok
+        Carrito newUsuario = carritoService.addCarrito(carrito);
         return ResponseEntity.ok().body(newUsuario);
     }
 
-    @PutMapping("/user")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User newUser = userService.updateUser(user);
-        if(newUser == null){
+    @PutMapping("/carrito")
+    public ResponseEntity<Carrito> updateCarrito(@RequestBody Carrito carrito){
+        Carrito newCarrito = carritoService.updateCarrito(carrito);
+        if(newCarrito == null){
             return ResponseEntity.badRequest().body(null);
         }
-        return ResponseEntity.ok().body(newUser);
+        return ResponseEntity.ok().body(newCarrito);
     }
 
-    @DeleteMapping("/user/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable String id){
-        userService.deleteUser(id);
+    @DeleteMapping("/carrito/{id}")
+    public ResponseEntity<Carrito> deleteCarrito(@PathVariable String id){
+        carritoService.deleteCarrito(id);
         return ResponseEntity.noContent().build();
     }
 }

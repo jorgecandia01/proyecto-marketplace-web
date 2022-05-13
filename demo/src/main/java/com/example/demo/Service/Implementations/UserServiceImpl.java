@@ -35,14 +35,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User usuario){
-        return userRepository.save(usuario);
-    }
+    public User addUser(User user){
+        return userRepository.save(user); //con javascript ya hacemos la comprobación de que
+    }                                       //ni user ni password sean nulos
 
     @Override
-    public User updateUser(User usuario){
-        if(userRepository.existsById(String.valueOf(usuario.getId()))){
-            return userRepository.save(usuario);
+    public User updateUser(User user){
+        if(userRepository.existsById(String.valueOf(user.getId()))){
+            return userRepository.save(user);
         } else {
             return null;
         }
