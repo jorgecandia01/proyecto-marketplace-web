@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-import com.example.demo.Model.User;
+import com.example.demo.Model.UserModel;
 import com.example.demo.Repository.UserRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -30,17 +30,17 @@ public class UserTest {
 
     @Test
     public void carritosEndpoinTest() {
-        Iterable<User> user = userRep.findAll();
+        Iterable<UserModel> user = userRep.findAll();
 
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/user";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<Iterable<User>> result = testRestTemplate.exchange(
+        ResponseEntity<Iterable<UserModel>> result = testRestTemplate.exchange(
             url,
             HttpMethod.GET,
             entity,
-            new ParameterizedTypeReference<Iterable<User>>(){}
+            new ParameterizedTypeReference<Iterable<UserModel>>(){}
         );
 
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);

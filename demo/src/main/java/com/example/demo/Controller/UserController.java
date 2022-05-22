@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Service.UserService;
-import com.example.demo.Model.User;
+import com.example.demo.Model.UserModel;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -22,8 +22,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUser(@PathVariable String id){
-        User user = userService.getUser(id);
+    public ResponseEntity<UserModel> getUser(@PathVariable String id){
+        UserModel user = userService.getUser(id);
         if(user != null){
             return ResponseEntity.ok().body(user);
         } else {
@@ -32,15 +32,15 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<User> addUser(@RequestBody User user){
+    public ResponseEntity<UserModel> addUser(@RequestBody UserModel user){
         user.setId(null); //Lo hace lombok
-        User newUsuario = userService.addUser(user);
+        UserModel newUsuario = userService.addUser(user);
         return ResponseEntity.ok().body(newUsuario);
     }
 
     @PutMapping("/user")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User newUser = userService.updateUser(user);
+    public ResponseEntity<UserModel> updateUser(@RequestBody UserModel user){
+        UserModel newUser = userService.updateUser(user);
         if(newUser == null){
             return ResponseEntity.badRequest().body(null);
         }
@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable String id){
+    public ResponseEntity<UserModel> deleteUser(@PathVariable String id){
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }

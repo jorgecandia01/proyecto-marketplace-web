@@ -12,7 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("TABLE_USER")
-public class User {
+public class UserModel {
     private @Column("ID") @Id Long id;
     private @Column("EMAIL") String email;
     private @Column("PASSWORD") String password;
