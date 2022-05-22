@@ -5,9 +5,18 @@ import java.lang.Iterable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.Service.UserService;
 import com.example.demo.Repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,5 +54,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(String id){
         userRepository.deleteById(id);
+    }
+
+
+    @Override
+    public UserDetails loadUserByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        UserDetails newUser = new User(user.getEmail(), user.getPassword(), authorities);
+        return newUser;
     }
 }

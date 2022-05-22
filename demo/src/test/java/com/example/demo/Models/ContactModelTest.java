@@ -1,4 +1,4 @@
-package com.example.demo.Models;
+/*package com.example.demo.Models;
 
 import com.example.demo.Model.Contact;
 import com.example.demo.Model.User;
@@ -20,5 +20,5 @@ public class ContactModelTest {
         contact.setIdUser(6L);
         Assert.assertEquals(contact.getIdUser() == 6L, true);
     }
-    
-}
+
+}*/

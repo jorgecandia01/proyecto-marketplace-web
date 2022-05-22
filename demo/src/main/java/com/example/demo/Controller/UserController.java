@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Service.UserService;
 import com.example.demo.Model.User;
 
 @RestController
+@RequestMapping("/api/v1")
 public class UserController {
     @Autowired
     private UserService userService;
