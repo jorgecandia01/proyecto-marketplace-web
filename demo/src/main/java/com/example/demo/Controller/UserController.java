@@ -31,6 +31,16 @@ public class UserController {
         }
     }
 
+    @GetMapping("/user/{email}")
+    public ResponseEntity<UserModel> getUserByEmail(@PathVariable String email){
+        UserModel user = userService.getUserByEmail(email);
+        if(user != null){
+            return ResponseEntity.ok().body(user);
+        } else {
+            return ResponseEntity.badRequest().body(user);
+        }
+    }
+
     @PostMapping("/user")
     public ResponseEntity<UserModel> addUser(@RequestBody UserModel user){
         user.setId(null); //Lo hace lombok

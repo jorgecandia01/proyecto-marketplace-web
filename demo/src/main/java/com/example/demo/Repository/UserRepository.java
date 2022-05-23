@@ -18,5 +18,8 @@ public interface UserRepository extends CrudRepository<UserModel, String>{
 
     @Query("SELECT * FROM TABLE_USER WHERE EMAIL= :email")
     public UserModel findByUsername(String email);
+
+    @Query("SELECT * FROM TABLE_USER WHERE EMAIL= :email")
+    public UserModel getUserByEmail(String email);
 }
 

@@ -38,6 +38,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public UserModel getUserByEmail(String email){
+        UserModel response = userRepository.getUserByEmail(email);//en TABLE_USER fuerzo a email a ser UNIQUE
+        return response;
+    }
+
+    @Override
     public UserModel addUser(UserModel user){
         return userRepository.save(user); //con javascript ya hacemos la comprobación de que
     }                                       //ni user ni password sean nulos
