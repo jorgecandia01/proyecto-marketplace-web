@@ -1,2 +1,2 @@
-# proyecto-final
-Proyecto final sobre Blackberry
+# Proyecto Marketplace
+Proyecto web de un marketplace
